@@ -6,4 +6,6 @@ type TrapOIDs struct {
 	SubComponent string
 	Severity     string
 	Message      string
+	Summary      string
+	Namespace    string
 }

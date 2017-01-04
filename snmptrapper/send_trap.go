@@ -50,12 +50,21 @@ func sendTrap(alert types.Alert) {
 	arguments["oidComponent"] = trapOIDs.Component
 	arguments["oidComponentType"] = "s"
 	arguments["oidComponentValue"] = fmt.Sprintf("'%v'", alert.Labels["instance"])
-	arguments["oidMessage"] = trapOIDs.Message
-	arguments["oidMessageType"] = "s"
-	arguments["oidMessageValue"] = fmt.Sprintf("'%v'", alert.Annotations["description"])
 	arguments["oidSubComponent"] = trapOIDs.SubComponent
 	arguments["oidSubComponentType"] = "s"
 	arguments["oidSubComponentValue"] = fmt.Sprintf("'%v'", alert.Labels["service"])
+	arguments["oidSeverity"] = trapOIDs.Severity
+	arguments["oidSeverityType"] = "s"
+	arguments["oidSeverityValue"] = fmt.Sprintf("'%v'", alert.Labels["severity"])        
+	arguments["oidMessage"] = trapOIDs.Message
+	arguments["oidMessageType"] = "s"
+	arguments["oidMessageValue"] = fmt.Sprintf("'%v'", alert.Annotations["description"])
+	arguments["oidSummary"] = trapOIDs.Summary
+	arguments["oidSummaryType"] = "s"
+	arguments["oidSummaryValue"] = fmt.Sprintf("'%v'", alert.Labels["summary"])
+	arguments["oidNamespace"] = trapOIDs.Namespace
+	arguments["oidNamespaceType"] = "s"
+	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["kubernetes_namespace"])
 
 	// Trap command:
 	netSNMPTrapCommand := exec.Command(
@@ -71,12 +80,22 @@ func sendTrap(alert types.Alert) {
 		arguments["oidComponent"],
 		arguments["oidComponentType"],
 		arguments["oidComponentValue"],
-		arguments["oidMessage"],
-		arguments["oidMessageType"],
-		arguments["oidMessageValue"],
 		arguments["oidSubComponent"],
 		arguments["oidSubComponentType"],
 		arguments["oidSubComponentValue"],
+		arguments["oidSeverity"],
+		arguments["oidSeverityType"],
+		arguments["oidSeverityValue"],
+		arguments["oidMessage"],
+		arguments["oidMessageType"],
+		arguments["oidMessageValue"],
+		arguments["oidSummary"],
+		arguments["oidSummaryType"],
+		arguments["oidSummaryValue"],
+		arguments["oidNamespace"],
+		arguments["oidNamespaceType"],
+		arguments["oidNamespaceValue"],
+
 	)
 	netSNMPTrapCommand.Stdout = &stdout
 	netSNMPTrapCommand.Stderr = &stderr
