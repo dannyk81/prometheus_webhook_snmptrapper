@@ -4,10 +4,10 @@ import (
 	flag "flag"
 	sync "sync"
 
-	config "github.com/chrusty/prometheus_webhook_snmptrapper/config"
-	snmptrapper "github.com/chrusty/prometheus_webhook_snmptrapper/snmptrapper"
-	types "github.com/chrusty/prometheus_webhook_snmptrapper/types"
-	webhook "github.com/chrusty/prometheus_webhook_snmptrapper/webhook"
+	config "github.com/dannyk81/prometheus_webhook_snmptrapper/config"
+	snmptrapper "github.com/dannyk81/prometheus_webhook_snmptrapper/snmptrapper"
+	types "github.com/dannyk81/prometheus_webhook_snmptrapper/types"
+	webhook "github.com/dannyk81/prometheus_webhook_snmptrapper/webhook"
 
 	logrus "github.com/Sirupsen/logrus"
 )
