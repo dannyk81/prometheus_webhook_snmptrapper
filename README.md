@@ -47,4 +47,4 @@ Command-line flags
 - **-snmpretries**: The number of times to retry sending traps (_default_ = `1`)
 - **-snmptrapaddress**: The address to send traps to (_default_ = `127.0.0.1:162`)
 - **-webhookaddress**: The address to listen for incoming webhooks on (_default_ = `0.0.0.0:9099`)
-- **-snmptrapbinary**: Path to the net-snmp 'snmptrap' binary (_default_ "/usr/bin/snmptrap")
+- **-snmptrapbinary**: Path to the net-snmp 'snmptrap' binary (_default_ `/usr/bin/snmptrap`)
