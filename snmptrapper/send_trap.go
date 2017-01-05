@@ -16,7 +16,7 @@ func sendTrap(alert types.Alert) {
 
 	// Figure out which "severity" value to send:
 	switch {
-	case alert.Status == "recovery":
+	case alert.Status == "resolved":
 		// "Any existing alerts with a matching Node, AlertGroup, AlertKey will be cleared":
 		specificTrap = "0"
 	case alert.Labels["severity"] == "info", alert.Labels["severity"] == "warning":
