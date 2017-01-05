@@ -8,4 +8,6 @@ type TrapOIDs struct {
 	Message      string
 	Summary      string
 	Namespace    string
+	Application  string
+	Object       string
 }
