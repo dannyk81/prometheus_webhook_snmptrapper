@@ -61,7 +61,7 @@ func sendTrap(alert types.Alert) {
 	arguments["oidMessageValue"] = fmt.Sprintf("'%v'", alert.Annotations["description"])
 	arguments["oidSummary"] = trapOIDs.Summary
 	arguments["oidSummaryType"] = "s"
-	arguments["oidSummaryValue"] = fmt.Sprintf("'%v'", alert.Labels["summary"])
+	arguments["oidSummaryValue"] = fmt.Sprintf("'%v'", alert.Annotations["summary"])
 	arguments["oidNamespace"] = trapOIDs.Namespace
 	arguments["oidNamespaceType"] = "s"
 	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["kubernetes_namespace"])
