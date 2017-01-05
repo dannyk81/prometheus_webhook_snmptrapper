@@ -65,14 +65,14 @@ func sendTrap(alert types.Alert) {
 	arguments["oidNamespace"] = trapOIDs.Namespace
 	arguments["oidNamespaceType"] = "s"
 	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["kubernetes_namespace"])
-	arguments["oidNamespace"] = trapOIDs.Application
-	arguments["oidNamespaceType"] = "s"
-	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["alert_application"])
-	arguments["oidNamespace"] = trapOIDs.Object
-	arguments["oidNamespaceType"] = "s"
-	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["alert_object"])	
+	arguments["oidApplication"] = trapOIDs.Application
+	arguments["oidApplicationType"] = "s"
+	arguments["oidApplicationValue"] = fmt.Sprintf("'%v'", alert.Labels["alert_application"])
+	arguments["oidObject"] = trapOIDs.Object
+	arguments["oidObjectType"] = "s"
+	arguments["oidObjectValue"] = fmt.Sprintf("'%v'", alert.Labels["alert_object"])	
 
-	// Trap command::
+	// Trap command:
 	netSNMPTrapCommand := exec.Command(
 		myConfig.SNMPTrapBinary,
 		arguments["snmpTrapVersion"],
