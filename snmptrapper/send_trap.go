@@ -72,7 +72,7 @@ func sendTrap(alert types.Alert) {
 	arguments["oidNamespaceType"] = "s"
 	arguments["oidNamespaceValue"] = fmt.Sprintf("'%v'", alert.Labels["alert_object"])	
 
-	// Trap command:
+	// Trap command::
 	netSNMPTrapCommand := exec.Command(
 		myConfig.SNMPTrapBinary,
 		arguments["snmpTrapVersion"],
